@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>News Aggregator</title>
+    <meta charset="utf-8" />
+    <link rel="icon" href="assets/icon.png" type="image/x-icon" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body onload="newsLoader('India')">
+    <header>
+      <nav class="navbar navbar-expand-lg px-lg-5">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img
+              src="assets/logo.png"
+              class="w-100 h-100"
+              alt="logo"
+              srcset=""
+            />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav m-auto mb-2 mb-lg-0 fw">
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  id="Sports"
+                  href="/"
+                  onclick="newsLoader(this.id)"
+                  >Sports</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  id="Business"
+                  href="/"
+                  onclick="newsLoader(this.id)"
+                  >Business</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  id="Health"
+                  href="/"
+                  onclick="newsLoader(this.id)"
+                  >Health</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  id="Entertainment"
+                  href="/"
+                  onclick="newsLoader(this.id)"
+                  >Entertainment</a
+                >
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="/"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Overseas
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <img src="https://flagsapi.com/US/flat/64.png" />
+                    <a
+                      class="dropdown-item"
+                      href="#"
+                      onclick="newsLoader('America')"
+                      >America</a
+                    >
+                  </li>
+                  <li>
+                    <img src="https://flagsapi.com/CN/flat/64.png" />
+                    <a
+                      class="dropdown-item"
+                      href="#"
+                      onclick="newsLoader('China')"
+                      >China</a
+                    >
+                  </li>
+                  <li>
+                    <img src="https://flagsapi.com/RU/flat/64.png" />
+                    <a
+                      class="dropdown-item"
+                      href="#"
+                      onclick="newsLoader('Russia')"
+                      >Russia</a
+                    >
+                  </li>
+                  <li>
+                    <img src="https://flagsapi.com/FR/flat/64.png" />
+                    <a
+                      class="dropdown-item"
+                      href="#"
+                      onclick="newsLoader('France')"
+                      >France</a
+                    >
+                  </li>
+                  <li>
+                    <img src="https://flagsapi.com/IL/flat/64.png" />
+                    <a
+                      class="dropdown-item"
+                      href="#"
+                      onclick="newsLoader('Israel')"
+                      >Israel</a
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <form class="d-flex" role="search" id="search-form">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="eg. Virat Kohli"
+                aria-label="Search"
+                id="search-input"
+              />
+              <button class="btn btn-primary" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="container-fluid px-3 p-5">
+        <div class="row pt-4">
+          <div class="col-md-12">
+            <h2 class="text-center pt-2" style="color: #00a5db">
+              <i class="bi bi-align-start"></i>
+              Today's Headlines
+              <p class="">
+                <span id="date" class="h6 text-center text-black"></span>
+              </p>
+            </h2>
+            <div class="row" id="card-container"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <template id="news-card-template">
+      <div class="col-md-4 pb-3 pb-3">
+        <div class="card py-4">
+          <div class="card-img overflow-hidden">
+            <img
+              src=""
+              alt="Card image cap"
+              class="card-img-top w-100 h-100 card-image"
+            />
+          </div>
+          <div class="card-body">
+            <h5 class="card-title text-center text-uppercase">News Title</h5>
+            <hr />
+            <i class="bi bi-calendar3"></i>
+            <span class="card-date h6 me-2">Published Date</span>
+            <i class="bi bi-clock-history ms-2"></i>
+            <span class="card-time h6">Published Time</span>
+            <p class="card-text py-2 card-description"></p>
+            <a class="btn btn-primary click-to-know-more" target="_blank"
+              >Click to Show more</a
+            >
+          </div>
+        </div>
+      </div>
+    </template>
+    <div
+      class="container border w-50 text-center border-danger"
+      id="no-news-popup"
+    >
+      <i class="bi bi-x-octagon text-danger"></i>
+      <h1 class="text-center text-danger">No News Found</h1>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>

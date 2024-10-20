@@ -1,0 +1,109 @@
+nav {
+  background: #ebf8fa;
+  box-shadow: 0 0 5px #bbb;
+}
+body {
+  background: #ebf8fa;
+}
+header {
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+}
+.navbar-brand {
+  width: 150px;
+  height: auto;
+}
+.navbar-brand img {
+  filter: invert(49%) sepia(29%) saturate(5185%) hue-rotate(162deg)
+    brightness(95%) contrast(102%);
+}
+.card {
+  height: 700px;
+}
+.card:hover {
+  box-shadow: 0px 0px 10px teal;
+  transform: scale(1.02);
+  transition: 0.3s;
+}
+
+.card-img {
+  width: 95%;
+  height: 300px !important;
+  margin: auto;
+  overflow: hidden;
+}
+.card-img img {
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.card-img img:hover {
+  border: solid red;
+  transform: scale(1.3);
+  transition: 2.2s;
+}
+.card-text {
+  text-align: justify;
+  height: 150px;
+  overflow: hidden;
+}
+.read-less {
+  display: none;
+}
+.dropdown-menu {
+  background-color: #ebf8fa;
+  overflow: hidden;
+}
+.dropdown-item:hover {
+  background-color: #ebf8fa;
+  transform: translateX(5px);
+}
+.form-control::placeholder {
+  color: #666;
+}
+.dropdown-menu li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-inline-start: 10px;
+}
+.dropdown-menu img {
+  width: 20px;
+  height: 20px;
+}
+.btn-danger:hover {
+  background-color: #fff;
+  color: #d9534f;
+}
+.btn-primary:hover {
+  background-color: #fff;
+  /* color: #337ab7; */
+  color: #00a5db;
+}
+.btn-primary {
+  background-color: #00a5db;
+  border: solid 1px #00a5db;
+}
+.btn-success:hover {
+  background-color: #fff;
+  color: #5cb85c;
+}
+.show-more {
+  display: none;
+}
+
+.click-to-know-more {
+  width: auto;
+  cursor: pointer;
+}
+.active {
+  color: #00a5db !important;
+}
+#no-news-popup {
+  border: dashed red !important ;
+  display: none;
+}
+#no-news-popup i {
+  font-size: 150px;
+}
